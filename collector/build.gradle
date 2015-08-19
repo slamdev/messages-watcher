@@ -1,0 +1,5 @@
+dependencies {
+    compile project(':collector:runner')
+    compile project(':collector:capturer:viber')
+    compile project(':collector:capturer:skype')
+}

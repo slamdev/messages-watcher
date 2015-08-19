@@ -1,3 +1,4 @@
+include ':collector'
 include ':collector:capturer:spi'
 include ':collector:capturer:skype'
 include ':collector:capturer:viber'

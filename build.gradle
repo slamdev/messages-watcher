@@ -1,2 +1,6 @@
 group 'com.github.slamdev'
 version '0.1-SNAPSHOT'
+
+subprojects {
+    apply plugin: 'java'
+}
