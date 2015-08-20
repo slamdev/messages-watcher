@@ -1,1 +1,1 @@
-dependencies {    compile project(':collector:capturer:spi')}
+dependencies {    compile project(':collector:capturer:spi')//    compile 'javax.enterprise:cdi-api:1.2'}processResources.doLast {    copy {        from "$buildDir/resources/main/META-INF/beans.xml"        into "$buildDir/classes/main/META-INF/"    }}
