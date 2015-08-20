@@ -3,4 +3,7 @@ version '0.1-SNAPSHOT'
 
 subprojects {
     apply plugin: 'java'
+    repositories {
+        mavenCentral()
+    }
 }
