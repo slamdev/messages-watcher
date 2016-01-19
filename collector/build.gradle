@@ -1,5 +1,15 @@
-dependencies {
-    compile project(':collector:runner')
-    compile project(':collector:capturer:viber')
-    compile project(':collector:capturer:skype')
+plugins {
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '1.2.2'
 }
+
+subprojects {
+    apply plugin: 'java'
+    dependencies {
+        compile 'com.google.inject:guice:4.0'
+        compile 'com.google.inject.extensions:guice-multibindings:4.0'
+        compile 'ch.qos.logback:logback-classic:1.1.3'
+    }
+}
+
+mainClassName = 'com.github.slamdev.messageswatcher.collector.runner.Runner'

@@ -1,7 +1,8 @@
-apply plugin: 'war'
+plugins {
+    id 'war'
+}
 
 dependencies {
-    compile project(':packager')
     compile project(':storage:dropbox')
     compile project(':storage:google-drive')
 }
