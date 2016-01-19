@@ -1,9 +1,17 @@
 group 'com.github.slamdev'
 version '0.1-SNAPSHOT'
 
+ext {
+    gradleWrapperVersion = project.gradleWrapperVersion
+}
+
 subprojects {
     apply plugin: 'java'
     repositories {
         mavenCentral()
     }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = gradleWrapperVersion
 }
