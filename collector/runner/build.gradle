@@ -1,0 +1,11 @@
+dependencies {
+    compile project(':collector:capturer:spi')
+    runtime project(':collector:capturer:skype')
+    runtime project(':collector:capturer:viber')
+    compile project(':packager:spi')
+    runtime project(':packager:csv')
+    runtime project(':packager:json')
+    compile project(':storage:spi')
+    runtime project(':storage:dropbox')
+    runtime project(':storage:google-drive')
+}

@@ -1,0 +1,8 @@
+plugins {
+    id 'war'
+}
+
+dependencies {
+    compile project(':storage:dropbox')
+    compile project(':storage:google-drive')
+}
