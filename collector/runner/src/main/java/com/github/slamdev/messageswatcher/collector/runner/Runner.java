@@ -14,12 +14,12 @@ public class Runner {
         collectors.forEach(Collector::collect);
     }
 
-    public void run() {
-        System.out.println("running");
-    }
-
     public static void main(String[] args) {
         Injector injector = Guice.createInjector(new RunnerModule());
         injector.getInstance(Runner.class).run();
+    }
+
+    public void run() {
+        System.out.println("running");
     }
 }
