@@ -4,3 +4,5 @@ jdk: oraclejdk8
 branches:
       only:
         - master
+after_success:
+  "if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; ./gradlew githubRelease; fi"

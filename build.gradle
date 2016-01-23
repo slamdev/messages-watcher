@@ -1,3 +1,7 @@
+import com.github.slamdev.messageswatcher.plugin.GithubReleasePlugin
+
+apply plugin: GithubReleasePlugin
+
 group 'com.github.slamdev'
 version '0.1-SNAPSHOT'
 
@@ -9,6 +13,10 @@ subprojects {
     repositories {
         mavenCentral()
     }
+}
+
+githubRelease {
+    oAuthToken = RELEASE_KEY /* env variable */
 }
 
 task wrapper(type: Wrapper) {
