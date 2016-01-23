@@ -12,4 +12,6 @@ subprojects {
     }
 }
 
+assemble.dependsOn shadowJar
+
 mainClassName = 'com.github.slamdev.messageswatcher.collector.runner.Runner'

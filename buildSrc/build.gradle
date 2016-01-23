@@ -1,0 +1,13 @@
+plugins {
+    id 'java-gradle-plugin'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'http://repo.jenkins-ci.org/public'
+    }
+}
+dependencies {
+    compile 'org.kohsuke:github-api:1.72'
+}
