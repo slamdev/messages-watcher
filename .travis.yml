@@ -1,8 +1,11 @@
 sudo: false
 language: java
 jdk: oraclejdk8
+cache:
+    directories:
+        - .gradle
+        - $HOME/.gradle
 branches:
-      only:
-        - master
+    only: master
 after_success:
-  - if [ $TRAVIS_PULL_REQUEST == 'false' ]; then ./gradlew githubRelease; fi
+    - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && ./gradlew githubRelease || false'
