@@ -5,6 +5,7 @@ cache:
     directories:
         - .gradle
         - $HOME/.gradle
+        - $HOME/.m2
 branches:
     only: master
 after_success:
