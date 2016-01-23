@@ -5,4 +5,4 @@ branches:
       only:
         - master
 after_success:
-  "if [[ $TRAVIS_PULL_REQUEST == 'false' ]]; ./gradlew githubRelease; fi"
+  - if [ $TRAVIS_PULL_REQUEST == 'false' ]; then ./gradlew githubRelease; fi
