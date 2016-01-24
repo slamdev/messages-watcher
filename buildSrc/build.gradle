@@ -1,5 +1,6 @@
 plugins {
     id 'java-gradle-plugin'
+    id 'codenarc'
 }
 
 repositories {
@@ -8,6 +9,12 @@ repositories {
         url 'http://repo.jenkins-ci.org/public'
     }
 }
+
+codenarc {
+    toolVersion = '0.24.1'
+    configFile = project.file('src/main/resources/codenarc.groovy')
+}
+
 dependencies {
     compile 'org.kohsuke:github-api:1.72'
 }

@@ -1,7 +1,7 @@
 package com.github.slamdev.messageswatcher.plugin
 
 import groovy.transform.Canonical
-import groovy.transform.EqualsAndHashCode;
+import groovy.transform.EqualsAndHashCode
 
 class GithubReleaseExtension {
 
@@ -15,8 +15,8 @@ class GithubReleaseExtension {
 
     List<Asset> assets = []
 
-    @SuppressWarnings("GroovyUnusedDeclaration")
-    def deployable(Closure closure) {
+    @SuppressWarnings('GroovyUnusedDeclaration')
+    asset(Closure closure) {
         closure.resolveStrategy = Closure.DELEGATE_FIRST
         Asset asset = new Asset()
         closure.delegate = asset
@@ -26,7 +26,9 @@ class GithubReleaseExtension {
 
     @EqualsAndHashCode
     @Canonical
-    public static class Asset implements Serializable {
+    static class Asset implements Serializable {
+
+        private static final long serialVersionUID = 1L
 
         File file
 

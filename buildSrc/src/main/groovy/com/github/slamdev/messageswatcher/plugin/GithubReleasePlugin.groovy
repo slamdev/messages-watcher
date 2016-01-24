@@ -5,9 +5,11 @@ import org.gradle.api.Project
 
 class GithubReleasePlugin implements Plugin<Project> {
 
+    static final PLUGIN_NAME = 'githubRelease'
+
     @Override
     void apply(Project target) {
-        target.extensions.create('githubRelease', GithubReleaseExtension)
-        target.task('githubRelease', type: GithubReleaseTask)
+        target.extensions.create(PLUGIN_NAME, GithubReleaseExtension)
+        target.task(PLUGIN_NAME, type: GithubReleaseTask)
     }
 }

@@ -19,13 +19,15 @@ class GithubReleaseTask extends DefaultTask {
     private static final Pattern URL_PATTERN = Pattern.compile(
             '\\b((?:https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|])')
 
+    private static final String ZIP_TYPE = 'application/zip'
+
     private final GithubReleaseExtension extension
 
     GithubReleaseTask() {
         extension = project.extensions.getByType(GithubReleaseExtension)
     }
 
-    @SuppressWarnings("GroovyUnusedDeclaration")
+    @SuppressWarnings('GroovyUnusedDeclaration')
     @TaskAction
     void run() {
         GitHub github = GitHub.connectUsingOAuth(extension.oAuthToken)
@@ -51,12 +53,12 @@ class GithubReleaseTask extends DefaultTask {
                 List<Asset> assets = []
                 if (it.plugins.hasPlugin(WarPlugin)) {
                     File file = ((War) it.tasks.getByName(WarPlugin.WAR_TASK_NAME)).archivePath
-                    Asset asset = [contentType: 'application/zip', file: file]
+                    Asset asset = [contentType: ZIP_TYPE, file: file]
                     assets << asset
                 }
                 if (it.plugins.hasPlugin('com.github.johnrengelman.shadow')) {
                     File file = ((Jar) it.tasks.getByName('shadowJar')).archivePath
-                    Asset asset = [contentType: 'application/zip', file: file]
+                    Asset asset = [contentType: ZIP_TYPE, file: file]
                     assets << asset
                 }
                 assets
@@ -70,7 +72,7 @@ class GithubReleaseTask extends DefaultTask {
         StringBuilder error = new StringBuilder()
         List<String> environmentVariables = [/*'VAR_NAME=var-value', 'VAR_NAME=var-value'*/]
         try {
-            Process proc = command.execute(environmentVariables, workDir);
+            Process proc = command.execute(environmentVariables, workDir)
             proc.consumeProcessOutput(out, error)
             proc.waitForOrKill(1000)
         } catch (IOException e) {
